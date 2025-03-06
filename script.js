@@ -9,6 +9,13 @@ loading.textContent = "Loading...";
 output.appendChild(loading);
 output.appendChild(errorDiv);
 
+// Add the button for Cypress tests
+const btn = document.createElement("button");
+btn.id = "download-images-button";  // Correct ID for Cypress test
+btn.textContent = "Download Images";
+btn.onclick = downloadImages;
+document.body.insertBefore(btn, output);  // Ensure it's placed before output
+
 const images = [
   { url: "https://picsum.photos/id/237/200/300" },
   { url: "https://picsum.photos/id/238/200/300" },
@@ -49,9 +56,3 @@ function downloadImages() {
     }
   });
 }
-
-// Add a button for downloading
-const btn = document.createElement("button");
-btn.textContent = "Download Images";
-btn.onclick = downloadImages;
-output.appendChild(btn);
